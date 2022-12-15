@@ -41,7 +41,7 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category");
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Core.Entities.Customer", b =>
@@ -78,7 +78,7 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Customer");
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("Core.Entities.Order", b =>
@@ -111,7 +111,7 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("Order");
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("Core.Entities.OrderDetail", b =>
@@ -143,7 +143,7 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("OrderDetail");
+                    b.ToTable("OrderDetails");
                 });
 
             modelBuilder.Entity("Core.Entities.Product", b =>
