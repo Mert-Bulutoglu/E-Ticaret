@@ -14,6 +14,15 @@ namespace API.Helpers
         {
             CreateMap<Product, ProductToReturnDto>()
                  .ForMember(d => d.Category, o => o.MapFrom(s => s.Category.Name));
+                 
+            CreateMap<OrderDetail, OrderDetailToReturnDto>()
+                 .ForMember(d => d.Product, o => o.MapFrom(s => s.Product.ProductName))
+                 .ForMember(d => d.Order, o => o.MapFrom(s => s.Order.OrderNo));
+
+            CreateMap<Order, OrderToReturnDto>()
+                .ForMember(d => d.Customer, o => o.MapFrom(s => s.Customer.FirstName));
+
+            CreateMap<Customer, CustomerDto>();
         }
     }
 }
