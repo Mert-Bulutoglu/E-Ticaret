@@ -34,7 +34,8 @@ namespace API.Controllers
             {
                 var products = await _repository.GetProductsAsync();
                 var mappedProducts = _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products);
-                return Ok(mappedProducts);
+                var response = new Response(true, mappedProducts, null);
+                return Ok(response);
             }
             catch (Exception e)
             {
@@ -89,10 +90,20 @@ namespace API.Controllers
             }
             try
             {
-                _repository.Add(product);
-                await _repository.SaveChangesAsync();
-                var response = new Response(true, product, null);
-                return Ok(response);
+                if (product.CategoryId == 0)
+                {
+                    var responseError = new ResponseError(StatusCodes.Status400BadRequest, "Fields cannot be empty.");
+                    var response = new Response(false, null, responseError);
+                    return BadRequest(response);
+                }
+                else
+                {
+                    _repository.Add(product);
+                    await _repository.SaveChangesAsync();
+                    var response = new Response(true, product, null);
+                    return Ok(response);
+                }
+
             }
             catch (Exception e)
             {
@@ -126,7 +137,6 @@ namespace API.Controllers
                     var response = new Response(true, product, null);
                     return Ok(response);
                 }
-
             }
             catch (Exception e)
             {
@@ -170,9 +180,6 @@ namespace API.Controllers
                 var response = new Response(false, null, responseError);
                 return StatusCode(StatusCodes.Status500InternalServerError, response);
             }
-
-
         }
-
     }
 }
