@@ -1,0 +1,26 @@
+
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+
+  table {
+    width: 100%;
+  }
+  
+.action-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  .btn{
+    &:first-child{
+      margin-right: 32px;
+    }
+  }
+}

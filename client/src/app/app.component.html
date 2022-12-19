@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+        <a mat-button routerLink="/" routerLinkActive="active" class="nav-link">Home</a>
+        <a mat-button routerLink="/product" routerLinkActive="active" class="nav-link">Product</a>
+</mat-toolbar>
+
+
+<section>
+    
+</section>
+<main>
+    <app-loading-screen *ngIf="loadingScreen.display" [message]="loadingScreen.message"></app-loading-screen>
+    <section>
+        <router-outlet></router-outlet>
+    </section>
+</main>
+<footer>
+
+</footer>
