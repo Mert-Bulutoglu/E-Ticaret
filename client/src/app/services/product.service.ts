@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Product } from '../models/product';
 
 @Injectable({
   providedIn: 'root'
@@ -32,9 +33,9 @@ export class ProductService {
     return this.http.post<any>(this.url, data);
   }
 
-  updateRequest(id: string, product: any) {
+  updateProduct(id: string, product: Product) {
     const data: string = JSON.stringify(product);
-    return this.http.put<any>(this.url + '/approve-request/' + id, data,
+    return this.http.put<any>(this.url + '/' + id, data,
       {
         params: new HttpParams()
       }

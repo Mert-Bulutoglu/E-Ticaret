@@ -1,0 +1,18 @@
+.dialog-content{
+    text-align: center;
+    padding-top: 48px;
+}
+
+.dialog-actions{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 48px;
+
+    .btn{
+
+        &:first-child{
+            margin-right: 32px;
+        }
+    }
+}

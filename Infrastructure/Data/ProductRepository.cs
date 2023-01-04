@@ -17,8 +17,9 @@ namespace Infrastructure
         public void Add(Product product)
         {
             _context.Add(product);
-        }
 
+        }
+        
         public void Delete(Product product)
         {
             _context.Remove(product);
@@ -26,14 +27,14 @@ namespace Infrastructure
 
         public async Task<Product> GetProductByIdAsync(int id)
         {
-            return await _context.Products.Include(p => p.Category)
+            return await _context.Products.Include(c => c.Category)
             .FirstOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task<IReadOnlyList<Product>> GetProductsAsync()
         {
             return await _context.Products.Include(p => p.Category).
-            ToListAsync();
+            ToArrayAsync();
         }
 
         public async Task<bool> SaveChangesAsync()

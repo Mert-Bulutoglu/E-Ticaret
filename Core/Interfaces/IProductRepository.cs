@@ -1,3 +1,4 @@
+
 using Core.Entities;
 
 namespace Core.Interfaces

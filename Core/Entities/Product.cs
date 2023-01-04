@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Core.Entities
@@ -17,8 +18,8 @@ namespace Core.Entities
 
        //    Related Entities  
 
-       public Category Category { get; set; }
-       public int CategoryId { get; set; }
+       public virtual Category Category { get; set; }
+       public int? CategoryId { get; set; }
       
     }
 }

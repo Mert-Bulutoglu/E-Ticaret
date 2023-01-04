@@ -1,0 +1,98 @@
+@import './css-variables.scss';
+
+
+
+.navigation{
+    width: 100%;
+    height: $navbar-height;
+    display: flex;
+    justify-content: center;
+    background-color: $color-white;
+    border-bottom: solid 1px $color-light-gray;
+  
+    .navbar{
+      height: 100%;
+      width: 100%;
+      max-width: $content-width-xl;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 $padding-xl;
+  
+      .nav-link{
+        padding: $padding-s $padding-m;
+  
+        &:hover {
+          text-decoration: underline;
+          color: $color-glory-twitter;
+        }
+  
+        &.active{
+          color: $color-glory-twitter;
+        }
+  
+        &.account{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+  
+          span{
+            margin-left: $padding-xs
+          }
+        }
+      }
+  
+      .left, .right{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+  
+      .left{
+        justify-content: flex-start;
+  
+        .nav-link{
+          &:first-child{
+            padding-left: 0;
+          }
+        }
+  
+        .logo-container {
+          height: 100%;
+          padding: $padding-s;
+  
+          .logo{
+            height: 100%;
+            width: auto;
+          }
+        }
+      }
+  
+      .right{
+        justify-content: flex-end;
+  
+        .nav-link{
+          &:last-child{
+            padding-right: 0;
+          }
+        }
+      }
+    }
+  }
+
+.main {
+    position: relative;
+    width: 100%;
+    min-height: $content-min-height-xl;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    .container {
+        height: 100%;
+        width: 100%;
+        max-width: $content-width-xl;
+        padding: $padding-xl;
+    }
+}
+

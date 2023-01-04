@@ -1,15 +1,26 @@
-<mat-toolbar color="primary">
-        <a mat-button routerLink="/" routerLinkActive="active" class="nav-link">Home</a>
-        <a mat-button routerLink="/product" routerLinkActive="active" class="nav-link">Product</a>
-</mat-toolbar>
+<nav class="navigation">
+    <div class="navbar">
+        <div class="left">
+            <a mat-button routerLink="/" routerLinkActive="active" class="nav-link">Home</a>
+            <a mat-button routerLink="/product" routerLinkActive="active" class="nav-link">Product</a>
+        </div>
+        <div class="right">
+            <a class="nav-link account">
+                <mat-icon aria-hidden="false" aria-label="user profile" fontIcon="account_circle"></mat-icon>
+                <span>Profile</span> 
+            </a>
+            <a >Logout</a>
+        </div>
+    </div>
+</nav>
 
 
 <section>
     
 </section>
-<main>
+<main class="main">
     <app-loading-screen *ngIf="loadingScreen.display" [message]="loadingScreen.message"></app-loading-screen>
-    <section>
+    <section class="container" >
         <router-outlet></router-outlet>
     </section>
 </main>

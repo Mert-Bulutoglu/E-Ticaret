@@ -2,11 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Core.Entities;
 
 namespace API.Dtos
 {
-    public class ProductToReturnDto
+    public class CreateProductDto
     {
         public int Id { get; set; }
         public string ProductName { get; set; }
@@ -17,7 +16,7 @@ namespace API.Dtos
         public decimal Price { get; set; }
         public int Stock { get; set; }
 
-         //    Related Entities
-        public string Category { get; set; }
+        //    Related Entities
+        public List<string> Category { get; set; }
     }
 }

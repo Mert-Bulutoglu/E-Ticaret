@@ -24,7 +24,7 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts()
         {
-            if (!ModelState.IsValid)
+             if (!ModelState.IsValid)
             {
                 var responseError = new ResponseError(StatusCodes.Status400BadRequest, "Invalid model");
                 var response = new Response(false, ModelState, responseError);
@@ -43,7 +43,6 @@ namespace API.Controllers
                 var response = new Response(false, null, responseError);
                 return StatusCode(StatusCodes.Status500InternalServerError, response);
             }
-
         }
 
         [HttpGet("{id}")]
@@ -58,8 +57,7 @@ namespace API.Controllers
             try
             {
                 var product = await _repository.GetProductByIdAsync(id);
-                var mappedProduct = _mapper.Map<Product, ProductToReturnDto>(product);
-                if (mappedProduct == null)
+                if (product == null)
                 {
                     var responseError = new ResponseError(StatusCodes.Status404NotFound, "Product not found.");
                     var response = new Response(false, null, responseError);
@@ -67,6 +65,7 @@ namespace API.Controllers
                 }
                 else
                 {
+                    var mappedProduct = _mapper.Map<Product, ProductToReturnDto>(product);
                     var response = new Response(true, mappedProduct, null);
                     return Ok(response);
                 }
@@ -90,7 +89,8 @@ namespace API.Controllers
             }
             try
             {
-                if (product.CategoryId == 0)
+
+                if (product.Id != 0)
                 {
                     var responseError = new ResponseError(StatusCodes.Status400BadRequest, "Fields cannot be empty.");
                     var response = new Response(false, null, responseError);
